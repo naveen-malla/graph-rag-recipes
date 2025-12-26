@@ -1,4 +1,31 @@
 .github/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Environment variables
 .env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
 
 CODEX.md
