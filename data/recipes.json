@@ -1,0 +1,134 @@
+{
+  "recipes": [
+    {
+      "id": "recipe_001",
+      "name": "Chicken Curry",
+      "tags": ["meat", "curry", "indian"],
+      "text": "1. Chop 2 medium onions finely. 2. Heat 2 tbsp oil in a pan over medium heat. 3. Add the chopped onions and sauté for 5 minutes until soft. 4. Add 500g chicken pieces and cook for 10 minutes until browned. 5. Add 400g tomato sauce and 1 tbsp curry powder. 6. Simmer for 20 minutes until chicken is cooked through.",
+      "graph": {
+        "ingredients": [
+          {"id": "ing_001", "name": "onion"},
+          {"id": "ing_002", "name": "oil"},
+          {"id": "ing_003", "name": "chicken"},
+          {"id": "ing_004", "name": "tomato sauce"},
+          {"id": "ing_005", "name": "curry powder"}
+        ],
+        "actions": [
+          {"id": "act_001", "verb": "chop", "step_index": 1, "text": "Chop 2 medium onions finely", "duration": null, "temperature": null},
+          {"id": "act_002", "verb": "heat", "step_index": 2, "text": "Heat 2 tbsp oil in a pan over medium heat", "duration": null, "temperature": "medium"},
+          {"id": "act_003", "verb": "sauté", "step_index": 3, "text": "Add the chopped onions and sauté for 5 minutes until soft", "duration": "5 minutes", "temperature": null},
+          {"id": "act_004", "verb": "cook", "step_index": 4, "text": "Add 500g chicken pieces and cook for 10 minutes until browned", "duration": "10 minutes", "temperature": null},
+          {"id": "act_005", "verb": "add", "step_index": 5, "text": "Add 400g tomato sauce and 1 tbsp curry powder", "duration": null, "temperature": null},
+          {"id": "act_006", "verb": "simmer", "step_index": 6, "text": "Simmer for 20 minutes until chicken is cooked through", "duration": "20 minutes", "temperature": null}
+        ],
+        "edges": [
+          {"source": "act_001", "target": "ing_001", "role": "input", "quantity": "2", "unit": "medium", "state": "raw"},
+          {"source": "act_002", "target": "ing_002", "role": "input", "quantity": "2", "unit": "tbsp", "state": null},
+          {"source": "act_003", "target": "ing_001", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_004", "target": "ing_003", "role": "input", "quantity": "500", "unit": "g", "state": "raw"},
+          {"source": "act_005", "target": "ing_004", "role": "input", "quantity": "400", "unit": "g", "state": null},
+          {"source": "act_005", "target": "ing_005", "role": "input", "quantity": "1", "unit": "tbsp", "state": null}
+        ]
+      }
+    },
+    {
+      "id": "recipe_002",
+      "name": "Chickpea Curry",
+      "tags": ["vegetarian", "curry", "indian"],
+      "text": "1. Chop 2 medium onions finely. 2. Heat 2 tbsp oil in a pan over medium heat. 3. Add the chopped onions and sauté for 5 minutes until soft. 4. Add 400g chickpeas and cook for 5 minutes until heated through. 5. Add 400g tomato sauce and 1 tbsp curry powder. 6. Simmer for 15 minutes until flavors blend.",
+      "graph": {
+        "ingredients": [
+          {"id": "ing_006", "name": "onion"},
+          {"id": "ing_007", "name": "oil"},
+          {"id": "ing_008", "name": "chickpeas"},
+          {"id": "ing_009", "name": "tomato sauce"},
+          {"id": "ing_010", "name": "curry powder"}
+        ],
+        "actions": [
+          {"id": "act_007", "verb": "chop", "step_index": 1, "text": "Chop 2 medium onions finely", "duration": null, "temperature": null},
+          {"id": "act_008", "verb": "heat", "step_index": 2, "text": "Heat 2 tbsp oil in a pan over medium heat", "duration": null, "temperature": "medium"},
+          {"id": "act_009", "verb": "sauté", "step_index": 3, "text": "Add the chopped onions and sauté for 5 minutes until soft", "duration": "5 minutes", "temperature": null},
+          {"id": "act_010", "verb": "cook", "step_index": 4, "text": "Add 400g chickpeas and cook for 5 minutes until heated through", "duration": "5 minutes", "temperature": null},
+          {"id": "act_011", "verb": "add", "step_index": 5, "text": "Add 400g tomato sauce and 1 tbsp curry powder", "duration": null, "temperature": null},
+          {"id": "act_012", "verb": "simmer", "step_index": 6, "text": "Simmer for 15 minutes until flavors blend", "duration": "15 minutes", "temperature": null}
+        ],
+        "edges": [
+          {"source": "act_007", "target": "ing_006", "role": "input", "quantity": "2", "unit": "medium", "state": "raw"},
+          {"source": "act_008", "target": "ing_007", "role": "input", "quantity": "2", "unit": "tbsp", "state": null},
+          {"source": "act_009", "target": "ing_006", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_010", "target": "ing_008", "role": "input", "quantity": "400", "unit": "g", "state": null},
+          {"source": "act_011", "target": "ing_009", "role": "input", "quantity": "400", "unit": "g", "state": null},
+          {"source": "act_011", "target": "ing_010", "role": "input", "quantity": "1", "unit": "tbsp", "state": null}
+        ]
+      }
+    },
+    {
+      "id": "recipe_003",
+      "name": "Beef Tacos",
+      "tags": ["meat", "mexican", "tacos"],
+      "text": "1. Chop 1 onion and 2 cloves garlic. 2. Heat 1 tbsp oil in a pan. 3. Add onion and garlic, sauté for 3 minutes. 4. Add 500g ground beef and cook for 10 minutes until browned. 5. Add 2 tbsp taco seasoning and mix well. 6. Warm 8 taco shells in oven for 5 minutes.",
+      "graph": {
+        "ingredients": [
+          {"id": "ing_011", "name": "onion"},
+          {"id": "ing_012", "name": "garlic"},
+          {"id": "ing_013", "name": "oil"},
+          {"id": "ing_014", "name": "ground beef"},
+          {"id": "ing_015", "name": "taco seasoning"},
+          {"id": "ing_016", "name": "taco shells"}
+        ],
+        "actions": [
+          {"id": "act_013", "verb": "chop", "step_index": 1, "text": "Chop 1 onion and 2 cloves garlic", "duration": null, "temperature": null},
+          {"id": "act_014", "verb": "heat", "step_index": 2, "text": "Heat 1 tbsp oil in a pan", "duration": null, "temperature": null},
+          {"id": "act_015", "verb": "sauté", "step_index": 3, "text": "Add onion and garlic, sauté for 3 minutes", "duration": "3 minutes", "temperature": null},
+          {"id": "act_016", "verb": "cook", "step_index": 4, "text": "Add 500g ground beef and cook for 10 minutes until browned", "duration": "10 minutes", "temperature": null},
+          {"id": "act_017", "verb": "mix", "step_index": 5, "text": "Add 2 tbsp taco seasoning and mix well", "duration": null, "temperature": null},
+          {"id": "act_018", "verb": "warm", "step_index": 6, "text": "Warm 8 taco shells in oven for 5 minutes", "duration": "5 minutes", "temperature": null}
+        ],
+        "edges": [
+          {"source": "act_013", "target": "ing_011", "role": "input", "quantity": "1", "unit": null, "state": "raw"},
+          {"source": "act_013", "target": "ing_012", "role": "input", "quantity": "2", "unit": "cloves", "state": "raw"},
+          {"source": "act_014", "target": "ing_013", "role": "input", "quantity": "1", "unit": "tbsp", "state": null},
+          {"source": "act_015", "target": "ing_011", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_015", "target": "ing_012", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_016", "target": "ing_014", "role": "input", "quantity": "500", "unit": "g", "state": "raw"},
+          {"source": "act_017", "target": "ing_015", "role": "input", "quantity": "2", "unit": "tbsp", "state": null},
+          {"source": "act_018", "target": "ing_016", "role": "input", "quantity": "8", "unit": null, "state": null}
+        ]
+      }
+    },
+    {
+      "id": "recipe_004",
+      "name": "Black Bean Tacos",
+      "tags": ["vegetarian", "mexican", "tacos"],
+      "text": "1. Chop 1 onion and 2 cloves garlic. 2. Heat 1 tbsp oil in a pan. 3. Add onion and garlic, sauté for 3 minutes. 4. Add 400g black beans and cook for 5 minutes until heated. 5. Add 2 tbsp taco seasoning and mix well. 6. Warm 8 taco shells in oven for 5 minutes.",
+      "graph": {
+        "ingredients": [
+          {"id": "ing_017", "name": "onion"},
+          {"id": "ing_018", "name": "garlic"},
+          {"id": "ing_019", "name": "oil"},
+          {"id": "ing_020", "name": "black beans"},
+          {"id": "ing_021", "name": "taco seasoning"},
+          {"id": "ing_022", "name": "taco shells"}
+        ],
+        "actions": [
+          {"id": "act_019", "verb": "chop", "step_index": 1, "text": "Chop 1 onion and 2 cloves garlic", "duration": null, "temperature": null},
+          {"id": "act_020", "verb": "heat", "step_index": 2, "text": "Heat 1 tbsp oil in a pan", "duration": null, "temperature": null},
+          {"id": "act_021", "verb": "sauté", "step_index": 3, "text": "Add onion and garlic, sauté for 3 minutes", "duration": "3 minutes", "temperature": null},
+          {"id": "act_022", "verb": "cook", "step_index": 4, "text": "Add 400g black beans and cook for 5 minutes until heated", "duration": "5 minutes", "temperature": null},
+          {"id": "act_023", "verb": "mix", "step_index": 5, "text": "Add 2 tbsp taco seasoning and mix well", "duration": null, "temperature": null},
+          {"id": "act_024", "verb": "warm", "step_index": 6, "text": "Warm 8 taco shells in oven for 5 minutes", "duration": "5 minutes", "temperature": null}
+        ],
+        "edges": [
+          {"source": "act_019", "target": "ing_017", "role": "input", "quantity": "1", "unit": null, "state": "raw"},
+          {"source": "act_019", "target": "ing_018", "role": "input", "quantity": "2", "unit": "cloves", "state": "raw"},
+          {"source": "act_020", "target": "ing_019", "role": "input", "quantity": "1", "unit": "tbsp", "state": null},
+          {"source": "act_021", "target": "ing_017", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_021", "target": "ing_018", "role": "input", "quantity": null, "unit": null, "state": "chopped"},
+          {"source": "act_022", "target": "ing_020", "role": "input", "quantity": "400", "unit": "g", "state": null},
+          {"source": "act_023", "target": "ing_021", "role": "input", "quantity": "2", "unit": "tbsp", "state": null},
+          {"source": "act_024", "target": "ing_022", "role": "input", "quantity": "8", "unit": null, "state": null}
+        ]
+      }
+    }
+  ]
+}
