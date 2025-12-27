@@ -33,7 +33,10 @@ data/
   ├── schema.json          # Graph schema definition
   ├── recipes.json         # Recipe dataset (text + graph)
   └── validate_recipes.py  # Validation script
-retrieval/                 # Retrieval implementations (TBD)
+utils/
+  └── recipe_utils.py      # Shared utilities (load_recipes, get_ingredients)
+retrieval/
+  └── simple_retrieval.py  # Ingredient-overlap based retrieval (Jaccard)
 generation/                # Adaptation implementations (TBD)
 evaluation/                # Evaluation metrics (TBD)
 ```
@@ -50,6 +53,23 @@ source .venv/bin/activate
 
 # Validate recipes
 python data/validate_recipes.py
+
+# Test retrieval system
+uv run python -m retrieval.simple_retrieval
+```
+
+## Retrieval System
+
+Simple ingredient-overlap based retrieval using **Jaccard similarity**:
+- Extract ingredient sets from recipe graphs
+- Calculate similarity: `|intersection| / |union|`
+- Return top-k most similar recipes
+
+Example output:
+```
+Query: Chicken Curry
+  → Chickpea Curry: 0.667 (66.7% ingredient overlap)
+  → Beef Tacos: 0.222 (22.2% overlap)
 ```
 
 ## Validation
