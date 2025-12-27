@@ -34,49 +34,24 @@ data/
   ├── recipes.json         # Recipe dataset (text + graph)
   └── validate_recipes.py  # Validation script
 utils/
-  └── recipe_utils.py      # Shared utilities (load_recipes, get_ingredients)
+  └── recipe_utils.py      # Shared utilities
 retrieval/
-  └── simple_retrieval.py  # Ingredient-overlap based retrieval (Jaccard)
-generation/                # Adaptation implementations (TBD)
-evaluation/                # Evaluation metrics (TBD)
+  └── simple_retrieval.py  # Ingredient-overlap retrieval (Jaccard)
+generation/
+  └── rag_generation.py    # Text-RAG and Graph-RAG pipelines
+evaluation/                # Evaluation (TBD)
 ```
 
-## Setup
+## Usage
 
 ```bash
-# Install UV (if not installed)
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Create virtual environment
-uv venv
-source .venv/bin/activate
-
 # Validate recipes
 python data/validate_recipes.py
 
-# Test retrieval system
+# Test retrieval
 uv run python -m retrieval.simple_retrieval
+
+# Test generation (requires Ollama running)
+uv run python -m generation.rag_generation
 ```
-
-## Retrieval System
-
-Simple ingredient-overlap based retrieval using **Jaccard similarity**:
-- Extract ingredient sets from recipe graphs
-- Calculate similarity: `|intersection| / |union|`
-- Return top-k most similar recipes
-
-Example output:
-```
-Query: Chicken Curry
-  → Chickpea Curry: 0.667 (66.7% ingredient overlap)
-  → Beef Tacos: 0.222 (22.2% overlap)
-```
-
-## Validation
-
-The validation script checks:
-- ✅ Ingredient coverage: Graph ingredients appear in text
-- ✅ Action coverage: Action verbs appear in text
-- ✅ Graph structure: Valid bipartite graph (action → ingredient only)
-- ✅ Edge validity: Correct roles (input/output), valid node references
 
