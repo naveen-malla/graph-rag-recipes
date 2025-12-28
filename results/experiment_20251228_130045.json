@@ -1,0 +1,102 @@
+{
+  "results": [
+    {
+      "query_recipe_id": "recipe_001",
+      "query_recipe_name": "Chicken Curry",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T13:00:37.448975",
+      "retrieved_recipes": [
+        "Chickpea Curry",
+        "Beef Tacos"
+      ],
+      "text_rag": {
+        "output": "1. Chop 2 medium onions finely.\n2. Heat 2 tbsp oil in a pan over medium heat.\n3. Add the chopped onions and saut\u00e9 for 5 minutes until soft.\n4. Add 400g black beans and cook for 5 minutes until heated through.\n5. Add 400g tomato sauce and 1 tbsp cumin powder.\n6. Simmer for 15 minutes until flavors blend.\n\nNote: Replaced ground beef with black beans, removed taco seasoning, and added cumin powder as a substitute for curry powder to maintain a similar flavor profile.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "beef"
+            ],
+            "message": "Constraint 'vegetarian' violated: found beef"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: taco seasoning, onion, ground beef, black beans, oil"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "Step 1. chop \u2192 onion (2 medium raw) [input]\nStep 2. heat \u2192 oil (2 tbsp) [input]\nStep 3. saut\u00e9 \u2192 onion (chopped) [input]\nStep 4. cook \u2192 chickpeas (400 g) [input]\nStep 5. add \u2192 tomato sauce (400 g) [input], cumin powder (1 tsp) [input]\nStep 6. simmer \u2192 \u2014",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": false,
+            "violations": [],
+            "message": "Constraint 'vegetarian' satisfied"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: onion, chickpeas, oil, tomato sauce"
+          },
+          "has_hallucination": false
+        }
+      }
+    },
+    {
+      "query_recipe_id": "recipe_003",
+      "query_recipe_name": "Beef Tacos",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T13:00:45.327927",
+      "retrieved_recipes": [
+        "Black Bean Tacos",
+        "Chicken Curry"
+      ],
+      "text_rag": {
+        "output": "1. Chop 1 onion and 2 cloves garlic.\n2. Heat 1 tbsp oil in a pan over medium heat.\n3. Add chopped onion and saut\u00e9 for 5 minutes until soft.\n4. Add 400g black beans and cook for 10 minutes until heated through.\n5. Add 2 tbsp curry powder and mix well.\n6. Simmer for 15-20 minutes until flavors are combined.\n\nNote: Since the original recipe for Chicken Curry does not contain meat, I have replaced step 4 with a cooking time that allows the black beans to heat through without overcooking.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "chicken",
+              "meat"
+            ],
+            "message": "Constraint 'vegetarian' violated: found chicken, meat"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: onion, black beans, oil, beans, garlic"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "Step 1. chop \u2192 bell pepper (2 medium raw) [input], onion (2 medium raw) [input], garlic (3 cloves raw) [input]\nStep 2. heat \u2192 oil (2 tbsp) [input]\nStep 3. saut\u00e9 \u2192 bell pepper (chopped) [input], onion (chopped) [input], garlic (chopped) [input]\nStep 4. cook \u2192 black beans (400 g) [input]\nStep 5. mix \u2192 curry powder (1 tbsp) [input], cumin (0.5 tbsp) [input], smoked paprika (0.25 tbsp) [input]\nStep 6. warm \u2192 naan bread or whole wheat tortillas (8) [input]",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": false,
+            "violations": [],
+            "message": "Constraint 'vegetarian' satisfied"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: onion, black beans, oil, beans, garlic"
+          },
+          "has_hallucination": false
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_experiments": 2,
+    "text_rag_hallucinations": 2,
+    "graph_rag_hallucinations": 0,
+    "text_rag_success_rate": 0.0,
+    "graph_rag_success_rate": 1.0
+  }
+}

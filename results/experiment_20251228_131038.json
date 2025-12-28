@@ -1,0 +1,101 @@
+{
+  "results": [
+    {
+      "query_recipe_id": "recipe_001",
+      "query_recipe_name": "Chicken Curry",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T13:10:29.888445",
+      "retrieved_recipes": [
+        "Chickpea Curry",
+        "Beef Tacos"
+      ],
+      "text_rag": {
+        "output": "Recipe: Black Bean Tacos\n\n1. Chop 1 onion and 2 cloves garlic.\n2. Heat 1 tbsp oil in a pan over medium heat.\n3. Add onion and garlic, saut\u00e9 for 3 minutes until soft.\n4. Add 500g black beans, cooked or canned, and cook for 5 minutes until heated through.\n5. Add 1 tsp taco seasoning and mix well.\n6. Warm 8 taco shells in oven for 5 minutes.\n\nNote: Replace ground beef with black beans, as a suitable vegetarian substitute.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "beef"
+            ],
+            "message": "Constraint 'vegetarian' violated: found beef"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: garlic, black beans, taco shells, onion, beans"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "Step 1. chop \u2192 onion (2 medium raw) [input]\nStep 2. heat \u2192 oil (2 tbsp) [input]\nStep 3. saut\u00e9 \u2192 onion (chopped) [input]\nStep 4. cook \u2192 black beans (400 g) [input]\nStep 5. add \u2192 tomato sauce (400 g) [input], cumin (1 tsp) [input]\nStep 6. simmer \u2192",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": false,
+            "violations": [],
+            "message": "Constraint 'vegetarian' satisfied"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: tomato sauce, black beans, onion, beans, oil"
+          },
+          "has_hallucination": false
+        }
+      }
+    },
+    {
+      "query_recipe_id": "recipe_003",
+      "query_recipe_name": "Beef Tacos",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T13:10:38.002018",
+      "retrieved_recipes": [
+        "Black Bean Tacos",
+        "Chicken Curry"
+      ],
+      "text_rag": {
+        "output": "Here's the adapted recipe:\n\n1. Chop 2 medium onions finely.\n2. Heat 1 tbsp oil in a pan over medium heat.\n3. Add the chopped onions and saut\u00e9 for 5 minutes until soft.\n4. Add 400g black beans and cook for 5 minutes until heated.\n5. Add 1 tsp curry powder and mix well.\n6. Simmer for 10 minutes until flavors are combined.\n\nNote: I removed chicken from the original recipe and replaced it with black beans to satisfy the vegetarian constraint. I also reduced the cooking time since black beans cook faster than chicken.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "message": "Constraint 'vegetarian' violated: found chicken"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: curry powder, oil, black beans, beans, onion"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "Step 1. chop \u2192 bell pepper (2 medium raw) [input], onion (1 raw) [input]\nStep 2. heat \u2192 oil (1 tbsp) [input]\nStep 3. saut\u00e9 \u2192 bell pepper (chopped) [input], onion (chopped) [input]\nStep 4. cook \u2192 black beans (400 g) [input]\nStep 5. mix \u2192 curry powder (1 tbsp) [input], taco seasoning (2 tbsp) [input]\nStep 6. warm \u2192 whole wheat tortillas (8) [input]",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": false,
+            "violations": [],
+            "message": "Constraint 'vegetarian' satisfied"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: curry powder, oil, black beans, beans, onion"
+          },
+          "has_hallucination": false
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_experiments": 2,
+    "text_rag_hallucinations": 2,
+    "graph_rag_hallucinations": 0,
+    "text_rag_success_rate": 0.0,
+    "graph_rag_success_rate": 1.0
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "results": [
+    {
+      "query_recipe_id": "recipe_001",
+      "query_recipe_name": "Chicken Curry",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T12:56:30.592407",
+      "retrieved_recipes": [
+        "Chickpea Curry",
+        "Beef Tacos"
+      ],
+      "text_rag": {
+        "output": "To adapt the Beef Tacos recipe to be vegetarian, we can replace the ground beef with a plant-based alternative. Here's an adapted recipe:\n\n**Vegetarian Black Bean Tacos**\n\nIngredients:\n- 1 medium onion\n- 2 cloves garlic\n- 500g cooked black beans\n- 2 tbsp taco seasoning\n- 8 taco shells\n\nInstructions:\n\n1. Chop the onion and saut\u00e9 in a pan with 1 tbsp oil for 3 minutes.\n2. Add minced garlic (about 1 clove) and cook for another minute, until fragrant.\n3. Stir in cooked black beans and mix well.\n4. Add 2 tbsp taco seasoning and adjust to taste.\n5. Warm the 8 taco shells in the oven for 5 minutes.\n6. Fill the tacos with the bean mixture and serve immediately.\n\nThis adapted recipe replaces ground beef with cooked black beans, maintaining a similar flavor profile while adhering to the vegetarian constraint.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "beef"
+            ],
+            "message": "Constraint 'vegetarian' violated: found beef"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: taco shells, beans, oil, taco seasoning, black beans"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "Based on the provided similar recipes, I've adapted the Chickpea Curry recipe to create a vegetarian version that replaces ground beef with portobello mushrooms. Here's the adapted recipe:\n\n**Vegetarian Portobello Mushroom Tacos**\n\nStructure:\n  Step 1. chop \u2192 onion (2 medium raw) [input]\n  Step 2. heat \u2192 oil (2 tbsp) [input]\n  Step 3. saut\u00e9 \u2192 onion (chopped) [input], garlic (minced) [input]\n  Step 4. cook \u2192 portobello mushrooms (200 g, sliced) [input]\n  Step 5. mix \u2192 taco seasoning (2 tbsp) [input]\n  Step 6. warm \u2192 taco shells (8) [input]\n\nStep-by-step instructions:\n\n1. Chop the onion and garlic.\n2. Heat oil in a pan over medium heat.\n3. Saut\u00e9 the chopped onion and minced garlic until softened.\n4. Add sliced portobello mushrooms and cook for 5-7 minutes, or until they release their liquid and start to brown.\n5. Mix in taco seasoning and stir to combine.\n6. Warm taco shells according to package instructions.\n\nThis adapted recipe maintains the essence of the original Chickpea Curry while replacing ground beef with a vegetarian-friendly portobello mushroom substitute.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "beef"
+            ],
+            "message": "Constraint 'vegetarian' violated: found beef"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: taco shells, mushrooms, oil, taco seasoning, ground beef"
+          },
+          "has_hallucination": true
+        }
+      }
+    },
+    {
+      "query_recipe_id": "recipe_003",
+      "query_recipe_name": "Beef Tacos",
+      "constraint": "vegetarian",
+      "model": "llama3.2:3b",
+      "timestamp": "2025-12-28T12:56:40.993850",
+      "retrieved_recipes": [
+        "Black Bean Tacos",
+        "Chicken Curry"
+      ],
+      "text_rag": {
+        "output": "Here's an adapted recipe that replaces the non-vegetarian ingredients in the Chicken Curry with vegetarian alternatives, inspired by the Black Bean Tacos:\n\n**Vegetable Korma**\n\nIngredients:\n- 1 medium onion\n- 2 cloves garlic\n- 400g mixed vegetables (e.g. bell peppers, carrots, potatoes)\n- 1 cup vegetable broth\n- 2 tbsp curry powder\n- 1 tsp cumin powder\n- Salt and pepper to taste\n\nStep-by-step instructions:\n\n1. Chop the onion and saut\u00e9 in a pan over medium heat for 5 minutes until soft.\n2. Add garlic and cook for another minute, until fragrant.\n3. Add mixed vegetables and cook until they start to soften (about 4 minutes).\n4. In a separate bowl, mix together vegetable broth, curry powder, and cumin powder. Pour the mixture into the pan with the vegetables.\n5. Simmer for 15-20 minutes, or until the vegetables are tender and the sauce has thickened.\n6. Season with salt and pepper to taste.\n\nServe over rice or with naan bread, enjoying a delicious and satisfying vegetarian meal!",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "message": "Constraint 'vegetarian' violated: found chicken"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: curry powder, onion, garlic, chicken"
+          },
+          "has_hallucination": true
+        }
+      },
+      "graph_rag": {
+        "output": "To adapt the Chicken Curry recipe to be vegetarian, replace the chicken with a suitable protein source. Here's an adapted recipe:\n\nVegetarian Red Lentil Curry\n\nStructure:\n  Step 1. chop \u2192 onion (2 medium raw) [input]\n  Step 2. heat \u2192 oil (2 tbsp) [input]\n  Step 3. saut\u00e9 \u2192 onion (chopped) [input]\n  Step 4. cook \u2192 red lentils (400 g) [input]\n  Step 5. add \u2192 tomato sauce (400 g) [input], curry powder (1 tbsp) [input]\n  Step 6. simmer \u2192 \u2014\n\n\nNote: Red lentils are a popular and nutritious vegetarian option, but you can also use other options like chickpeas or tofu if preferred.",
+        "evaluation": {
+          "constraint_violation": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "message": "Constraint 'vegetarian' violated: found chicken"
+          },
+          "ingredient_consistency": {
+            "consistent": true,
+            "unexpected_ingredients": [],
+            "message": "Recipe uses valid ingredients: tofu, tomato sauce, chickpeas, oil, lentils"
+          },
+          "has_hallucination": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_experiments": 2,
+    "text_rag_hallucinations": 2,
+    "graph_rag_hallucinations": 2,
+    "text_rag_success_rate": 0.0,
+    "graph_rag_success_rate": 0.0
+  }
+}
