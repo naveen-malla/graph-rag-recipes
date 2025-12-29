@@ -80,7 +80,7 @@ Similar recipes:
 
 Constraint: {constraint}
 
-Generate a step-by-step adapted recipe that satisfies the constraint. Be concise and practical.
+Generate a step-by-step adapted recipe that satisfies the constraint. Output the adapted recipe only, without additional explanations.
 
 Adapted recipe:"""
 
