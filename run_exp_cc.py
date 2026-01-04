@@ -1,12 +1,12 @@
-"""Main experiment runner: Text-RAG vs Graph-RAG comparison."""
+"""Experiment CC: Text-RAG vs Graph-RAG comparison (CookingCAKE-inspired bipartite graphs)."""
 import json
 from datetime import datetime
 from pathlib import Path
 
 from utils.recipe_utils import load_recipes
 from retrieval.simple_retrieval import retrieve_similar
-from generation.rag_generation import text_rag_adapt, graph_rag_adapt
-from evaluation.hallucination_checker import evaluate_hallucinations
+from generation.cc_rag_generation import text_rag_adapt, graph_rag_adapt
+from evaluation.cc_hallucination_checker import evaluate_hallucinations
 
 
 def run_experiment(query_recipe_id, constraint="vegetarian", model="llama3.2:3b"):
