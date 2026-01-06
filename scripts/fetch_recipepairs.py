@@ -15,7 +15,7 @@ import pandas as pd
 
 # --- Config ---
 OUTPUT_PATH = Path(__file__).parent.parent / "data" / "recipepairs_veg_eval.json"
-TARGET_COUNT = 500
+TARGET_COUNT = 10000
 MAX_PER_BASE = 5    # Max pairs per base recipe (limits duplicates)
 MAX_PER_TARGET = 5  # Max pairs per target recipe (limits duplicates)
 MEAT_KEYWORDS = {"chicken", "beef", "pork", "lamb", "turkey", "bacon", "sausage", "ham", "meat", "steak", "fish", "shrimp", "salmon"}
