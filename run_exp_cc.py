@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 from utils.recipe_utils import load_recipes
-from retrieval.simple_retrieval import retrieve_similar
+from retrieval.cc_retrieval import retrieve_similar
 from generation.cc_rag_generation import text_rag_adapt, graph_rag_adapt
 from evaluation.cc_hallucination_checker import evaluate_hallucinations
 

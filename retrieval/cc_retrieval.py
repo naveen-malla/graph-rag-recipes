@@ -1,5 +1,6 @@
-"""Simple ingredient-overlap based retrieval."""
-from utils.recipe_utils import load_recipes, get_ingredients
+"""CC Experiment: Retrieval by recipe ID for toy dataset."""
+from utils.recipe_utils import get_ingredients
+from retrieval.jaccard import jaccard_similarity
 
 
 def retrieve_similar(query_recipe_id, recipes, top_k=2):
@@ -35,14 +36,8 @@ def retrieve_similar(query_recipe_id, recipes, top_k=2):
         
         recipe_ingredients = get_ingredients(recipe)
         
-        # Calculate Jaccard similarity: |intersection| / |union|
-        intersection = query_ingredients & recipe_ingredients
-        union = query_ingredients | recipe_ingredients
-        
-        if len(union) > 0:
-            score = len(intersection) / len(union)
-        else:
-            score = 0.0
+        # Use shared Jaccard function
+        score = jaccard_similarity(query_ingredients, recipe_ingredients)
         
         scores.append((recipe["id"], score))
     
