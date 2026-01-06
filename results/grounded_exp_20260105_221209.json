@@ -1,0 +1,625 @@
+{
+  "metadata": {
+    "timestamp": "20260105_221209",
+    "config": {
+      "num_examples": 5,
+      "top_k": 3,
+      "model": "llama3.2:3b",
+      "constraint": "vegetarian",
+      "random_seed": 42
+    }
+  },
+  "summary": {
+    "num_examples": 5,
+    "baseline": {
+      "constraint_violation_count": 3,
+      "constraint_violation_rate": 0.6,
+      "grounding_violation_count": 5,
+      "grounding_violation_rate": 1.0,
+      "avg_novel_ingredients": 7.2
+    },
+    "grounded": {
+      "constraint_violation_count": 3,
+      "constraint_violation_rate": 0.6,
+      "grounding_violation_count": 1,
+      "grounding_violation_rate": 0.2,
+      "avg_novel_ingredients": 0.2
+    }
+  },
+  "results": [
+    {
+      "example_id": 1,
+      "base_recipe": {
+        "name": "chicken soup",
+        "ingredients": [
+          "butter",
+          "chicken",
+          "chicken stock",
+          "egg",
+          "flour",
+          "leafy green",
+          "lemon zest",
+          "milk",
+          "pepper",
+          "tarragon"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "chickenless chicken soup",
+          "score": 0.42666666666666664
+        },
+        {
+          "name": "chicken vegetable soup",
+          "score": 0.42105263157894735
+        },
+        {
+          "name": "chicken noodle soup",
+          "score": 0.39999999999999997
+        }
+      ],
+      "allowed_ingredients": [
+        "onion",
+        "leek",
+        "parsley",
+        "pepper",
+        "celery",
+        "bouillon",
+        "carrot",
+        "water",
+        "turnip",
+        "parsnip",
+        "dill",
+        "salt",
+        "noodle"
+      ],
+      "baseline": {
+        "output": "To adapt the original chicken soup recipe to be vegetarian, we can replace the chicken with a plant-based protein source and adjust the flavor profile accordingly. Here's the adapted recipe:\n\n**Vegetarian \"Chicken\" Soup**\n\nIngredients:\n\n* 2 tablespoons butter\n* 1 cup mushrooms (such as cremini or shiitake), sliced\n* 2 cups vegetable broth\n* 1/4 cup all-purpose flour\n* 1 cup milk\n* 1 teaspoon dried tarragon\n* 1/2 teaspoon lemon zest\n* 1/4 teaspoon black pepper\n* 1 cup watercress leaves\n* Optional: chopped leafy green (such as kale or spinach) for added nutrition\n\nSteps:\n\n1. In a large saucepan, melt the butter over medium heat.\n2. Add the sliced mushrooms and cook until they release their liquid and start to brown, about 5 minutes.\n3. Sprinkle the flour over the mushrooms and cook for 1-2 minutes, stirring constantly, until the mixture forms a light brown paste.\n4. Gradually pour in the vegetable broth, whisking continuously to avoid lumps. Bring the mixture to a boil, then reduce the heat to low and simmer for 10-15 minutes or until the soup has thickened slightly.\n5. Stir in the milk, tarragon, lemon zest, and pepper. Cook for an additional 2-3 minutes or until the soup is heated through.\n6. Add the watercress leaves to the soup and stir gently to combine. If using leafy green, add it now and cook for another minute.\n7. Taste and adjust the seasoning as needed.\n8. Serve the soup hot, garnished with additional tarragon if desired.\n\n**Note:** To replace the chicken balls, we've omitted them altogether in this adapted recipe. Instead, we're focusing on creating a creamy and flavorful vegetarian broth that's rich in texture and flavor. Feel free to experiment with other plant-based protein sources, such as tofu or tempeh, if you prefer!",
+        "evaluation": {
+          "extracted_ingredients": [
+            "butter",
+            "mushrooms",
+            "vegetable broth",
+            "all-purpose flour",
+            "milk",
+            "dried tarragon",
+            "lemon zest",
+            "black pepper",
+            "watercress leaves",
+            "leafy green"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "butter",
+              "mushrooms",
+              "vegetable broth",
+              "all-purpose flour",
+              "milk",
+              "dried tarragon",
+              "lemon zest",
+              "black pepper",
+              "watercress leaves",
+              "leafy green"
+            ],
+            "count": 10,
+            "extracted_count": 10
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "Adapted Recipe: Vegetarian Chicken Soup\n\nIngredients:\n\n* Bouillon\n* Carrot\n* Celery\n* Dill\n* Leek\n* Noodle\n* Onion\n* Parsley\n* Parsnip\n* Pepper\n* Salt\n* Turnip\n* Water\n\nSteps:\n\n1. Mince the onion, carrot, and celery using your hands or a knife (since we are not allowed to use an egg white for this adaptation).\n\n2. Boil all of these minced ingredients in water until they are soft, taking about 15-20 minutes.\n\n3. Remove the onions and discard them. Strain the carrots through a sieve into the soup to remove excess liquid.\n\n4. Heat bouillon cubes in a saucepan with some water (if needed) stirring until dissolved.\n\n5. Add the celery mixture and cooked noodles to the saucepan, along with pepper to taste.\n\n6. Continue heating until everything is well combined and heated through.\n\n7. Just before serving add parsley leaves to the soup for garnish.\n\n8. Serve hot with a side of turnip or parsnip if desired, though not required.\n\nNote: Since we can't use an egg white in this adaptation as per your rules, I've omitted it from the steps and replaced it with just mincing the onion, carrot, and celery.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "Bouillon",
+            "Carrot",
+            "Celery",
+            "Dill",
+            "Leek",
+            "Noodle",
+            "Onion",
+            "Parsley",
+            "Parsnip",
+            "Pepper",
+            "Salt",
+            "Turnip",
+            "Water"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": false,
+            "novel_ingredients": [],
+            "count": 0,
+            "extracted_count": 13
+          },
+          "overall_valid": false
+        }
+      }
+    },
+    {
+      "example_id": 2,
+      "base_recipe": {
+        "name": "potato salad",
+        "ingredients": [
+          "bacon",
+          "egg",
+          "mayonnaise",
+          "oil",
+          "onion",
+          "pea",
+          "potato",
+          "sour cream"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "favorite potato salad",
+          "score": 0.5454545454545454
+        },
+        {
+          "name": "simple potato salad",
+          "score": 0.5454545454545454
+        },
+        {
+          "name": "chipotle potato salad",
+          "score": 0.523076923076923
+        }
+      ],
+      "allowed_ingredients": [
+        "mayonnaise",
+        "sweet relish",
+        "potato",
+        "onion",
+        "garlic powder",
+        "pickle",
+        "paprika",
+        "sweet gherkin",
+        "dressing",
+        "salt",
+        "pepper",
+        "egg",
+        "dried chipotle powder"
+      ],
+      "baseline": {
+        "output": "Here is the adapted potato salad recipe, made vegetarian by removing the bacon and adding alternative protein sources:\n\n**Vegetarian Potato Salad Recipe**\n\n**Ingredients:**\n\n* 2 cups diced potatoes (any variety)\n* 1 cup cooked peas\n* 4 hard-boiled eggs, peeled and chopped\n* 1/2 cup mayonnaise\n* 1/4 cup sour cream\n* 2 tablespoons oil\n* 1 medium onion, finely chopped\n* 2 tablespoons chopped fresh dill (optional)\n\n**Instructions:**\n\n1. Bring a saucepan of salted water to the boil and add the diced potatoes. Cook until tender, but not soft and mushy! This usually takes about 12 minutes after they return to the boil.\n2. After about 8 minutes, add the peas to the boiling water and cook for a further 4 minutes. Drain the potatoes and peas in a colander and set aside.\n3. Meanwhile, heat the oil in a frypan over medium heat. Add the chopped onion and saut\u00e9 until softened, about 5 minutes.\n4. In a large bowl, combine the cooked potatoes, peas, chopped eggs, mayonnaise, sour cream, salt, and pepper. Mix gently but thoroughly until all ingredients are well combined.\n5. Stir in the saut\u00e9ed onion mixture into the potato salad.\n6. Taste and adjust seasoning as needed. If desired, add chopped fresh dill for extra flavor and freshness.\n7. Cover the bowl with plastic wrap and refrigerate for at least 30 minutes to allow flavors to meld together.\n\nNote: You can also chill the salad before serving, if you prefer a colder potato salad.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "potatoes",
+            "peas",
+            "eggs",
+            "mayonnaise",
+            "sour cream",
+            "oil",
+            "onion",
+            "fresh dill"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "bacon"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "peas",
+              "sour cream",
+              "oil",
+              "fresh dill"
+            ],
+            "count": 4,
+            "extracted_count": 8
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "Here's the adapted potato salad recipe using only the ALLOWED INGREDIENTS:\n\n**Vegetarian Potato Salad Recipe**\n\n**Ingredients:**\n\n* 1-2 potatoes, peeled and cut into bite-sized pieces\n* 1 egg, hard-boiled and chopped\n* 2 tablespoons mayonnaise\n* 1 tablespoon dried chipotle powder\n* 1/4 teaspoon garlic powder\n* 1 onion, finely chopped (optional)\n* Salt to taste\n\n**Instructions:**\n\n1. Bring a saucepan of salted water to the boil. Add the potato cubes and cook until tender, but not soft and mushy! This usually takes about 12 minutes after they return to the boil.\n2. Meanwhile, heat the mayonnaise in a small bowl and add the dried chipotle powder and garlic powder. Mix well to combine.\n3. After about 8 minutes of cooking potatoes, add a pinch of salt to taste. Stir gently.\n4. Continue cooking for another 4 minutes, or until the potatoes are cooked through.\n5. While the potatoes are still warm, transfer them to a bowl with the chopped onion (if using). Add the hard-boiled egg and mix gently but thoroughly.\n6. Pour in the chipotle-spiced mayonnaise mixture and stir until combined.\n7. Taste and adjust the seasoning with salt as needed.\n8. Cover and refrigerate until ready to serve.\n\nNote: Since we've omitted the peas, pea, sour cream, oil, and other ingredients not on the allowed list, this adapted recipe focuses on the core components of a traditional potato salad while adhering to the critical rules.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "potatoes",
+            "egg",
+            "mayonnaise",
+            "dried chipotle powder",
+            "garlic powder",
+            "onion",
+            "Salt"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": false,
+            "novel_ingredients": [],
+            "count": 0,
+            "extracted_count": 7
+          },
+          "overall_valid": true
+        }
+      }
+    },
+    {
+      "example_id": 3,
+      "base_recipe": {
+        "name": "english sweet and sour ribs",
+        "ingredients": [
+          "bay leafe",
+          "beef rib",
+          "brown sugar",
+          "catsup",
+          "cooking oil",
+          "flour",
+          "garlic",
+          "hot water",
+          "onion",
+          "pepper",
+          "seasoning",
+          "vinegar"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "sweet and sour sauce",
+          "score": 0.3857142857142857
+        },
+        {
+          "name": "sweet and sour sauce",
+          "score": 0.3857142857142857
+        },
+        {
+          "name": "sweet and sour sauce",
+          "score": 0.3857142857142857
+        }
+      ],
+      "allowed_ingredients": [
+        "vinegar",
+        "catsup",
+        "starch",
+        "pineapple tidbit",
+        "brown sugar"
+      ],
+      "baseline": {
+        "output": "Here is the adapted recipe for Vegetarian Sweet and Sour Ribs:\n\n**Ingredients:**\n\n* 1 cup of portobello mushrooms, stems removed and caps sliced into \"rib\" shape\n* 2 tablespoons of brown sugar\n* 1/4 cup of catsup\n* 1/4 cup of pineapple juice\n* 2 tablespoons of starch (such as cornstarch or tapioca starch)\n* 2 tablespoons of vinegar\n* 2 cloves of garlic, minced\n* 1 bay leaf\n* Cooking oil for saut\u00e9ing\n* Salt and pepper to taste\n\n**Step-by-Step Instructions:**\n\n1. Preheat the oven to 350\u00b0F (175\u00b0C).\n2. In a shallow dish, mix together the brown sugar, starch, salt, and pepper.\n3. Dip each portobello mushroom \"rib\" into the sugar mixture, coating both sides evenly.\n4. Heat a tablespoon of cooking oil in a large Dutch oven over medium-high heat. Sear the mushroom ribs until golden brown on all sides, about 5 minutes per side. Remove from heat and set aside.\n5. In the same pot, add another tablespoon of oil if needed. Saut\u00e9 the minced garlic for 1 minute until fragrant.\n6. Add the pineapple juice, catsup, vinegar, and bay leaf to the pot. Stir to combine, scraping up any browned bits from the bottom of the pan.\n7. Pour the sweet and sour sauce mixture over the mushroom ribs, making sure they are completely covered.\n8. Cover the pot with a lid and transfer it to the preheated oven. Bake for 2 hours, or until the mushrooms are tender and the sauce has thickened.\n9. Remove the pot from the oven and let it cool slightly. Stir in the bay leaf and serve hot.\n\nNote: Since portobello mushrooms have a meaty texture, they can be used as a substitute for ribs in this recipe. Feel free to experiment with other vegetarian options, such as extra-firm tofu or tempeh, if you prefer!",
+        "evaluation": {
+          "extracted_ingredients": [
+            "portobello mushrooms",
+            "brown sugar",
+            "catsup",
+            "pineapple juice",
+            "starch",
+            "vinegar",
+            "garlic",
+            "bay leaf",
+            "Cooking oil",
+            "Salt",
+            "pepper"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "meat"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "portobello mushrooms",
+              "pineapple juice",
+              "garlic",
+              "bay leaf",
+              "Cooking oil",
+              "Salt",
+              "pepper"
+            ],
+            "count": 7,
+            "extracted_count": 11
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "Here's the adapted vegetarian recipe for English Sweet and Sour Ribs using only the ALLOWED INGREDIENTS:\n\n**Ingredients:**\n\n* Brown sugar\n* Catsup\n* Pineapple tidbit\n* Starch\n* Vinegar\n\n**Note:** Since we're adapting a meat-based dish to be vegetarian, we'll focus on replicating the sweet and sour flavor profile without using meat. The result will be a unique twist on the original recipe.\n\n**Steps:**\n\n1. In a 2-quart saucepan, mix 2 tablespoons of brown sugar and starch until well combined.\n2. Add enough water to the pineapple tidbit juice to make approximately 1 cup. Stir this mixture into the sugar-starch mixture.\n3. Add catsup, vinegar, and stir until well combined.\n4. Cook the mixture over medium heat, stirring constantly, until it thickens and boils.\n5. Remove the saucepan from the heat and let it cool slightly.\n6. Slice the pineapple tidbit into thin pieces and add them to the sauce.\n7. Stir in more starch if needed to achieve a thicker consistency.\n8. Serve the sweet and sour mixture over cooked vegetables (such as carrots, bell peppers, or zucchini) that have been browned in cooking oil.\n\n**Optional:** If you want to replicate the \"rib\" texture, you can try using extra-firm tofu, tempeh, or seitan, which can be breaded with starch and cooked until crispy before serving.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "Brown sugar",
+            "Catsup",
+            "Pineapple tidbit",
+            "Starch",
+            "Vinegar"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "meat"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": false,
+            "novel_ingredients": [],
+            "count": 0,
+            "extracted_count": 5
+          },
+          "overall_valid": false
+        }
+      }
+    },
+    {
+      "example_id": 4,
+      "base_recipe": {
+        "name": "california apple spinach salad",
+        "ingredients": [
+          "apple",
+          "bacon",
+          "dried oregano",
+          "fetum",
+          "garlic",
+          "lettuce",
+          "mushroom",
+          "onion",
+          "pepper",
+          "spinach",
+          "sugar",
+          "vegetable oil",
+          "vinegar",
+          "worcestershire sauce"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "apple spinach salad",
+          "score": 0.5676470588235294
+        },
+        {
+          "name": "apple spinach salad",
+          "score": 0.5676470588235294
+        },
+        {
+          "name": "apple spinach salad",
+          "score": 0.5441176470588235
+        }
+      ],
+      "allowed_ingredients": [
+        "sugar",
+        "cashew",
+        "apple",
+        "vinegar",
+        "orange juice",
+        "spinach",
+        "onion",
+        "raisin",
+        "honey",
+        "oil",
+        "salted cashew",
+        "lime juice",
+        "salt",
+        "pepper",
+        "vegetable oil",
+        "lettuce"
+      ],
+      "baseline": {
+        "output": "**Vegetarian California Apple Spinach Salad**\n\nIngredients:\n\n* 2 apples, diced\n* 4 cups fresh lettuce, chopped\n* 2 cups fresh spinach leaves\n* 1 cup roasted mushrooms (see note)\n* 1/2 cup caramelized onions (see note)\n* 1/4 cup dried oregano\n* 2 tablespoons sugar\n* 2 tablespoons vegetable oil\n* 2 tablespoons apple cider vinegar\n* 1 tablespoon Worcestershire sauce (make sure it's vegetarian)\n* Salt and pepper to taste\n\nNote: For roasted mushrooms, simply saut\u00e9 1 cup of sliced mushrooms in a little bit of oil until tender and lightly browned. For caramelized onions, cook 1/2 cup of sliced onions in a little bit of oil over low heat for about 20-25 minutes, stirring occasionally.\n\nInstructions:\n\n1. In a blender or food processor, combine sugar, vegetable oil, apple cider vinegar, and Worcestershire sauce (make sure it's vegetarian). Blend until well combined.\n2. Refrigerate the dressing mixture for at least 30 minutes to allow the flavors to meld.\n3. Just before serving, gently toss diced apples with roasted mushrooms and caramelized onions in a large bowl.\n4. Add chopped lettuce and spinach leaves to the bowl with the apple-mushroom mixture.\n5. Pour the chilled dressing over the salad and toss gently to combine.\n6. Season with salt and pepper to taste.\n7. Sprinkle some dried oregano on top of the salad for added flavor and texture.\n8. Serve immediately, garnished with extra fresh herbs if desired.\n\nNote: If you want a creamier dressing, you can add 1-2 tablespoons of plain vegan yogurt or sour cream (made from plant-based ingredients) to the blender when blending the dressing.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "apples",
+            "fresh lettuce",
+            "fresh spinach leaves",
+            "roasted mushrooms",
+            "caramelized onions",
+            "dried oregano",
+            "sugar",
+            "vegetable oil",
+            "apple cider vinegar",
+            "Worcestershire sauce",
+            "Salt",
+            "pepper"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "fresh lettuce",
+              "fresh spinach leaves",
+              "roasted mushrooms",
+              "caramelized onions",
+              "dried oregano",
+              "apple cider vinegar",
+              "Worcestershire sauce"
+            ],
+            "count": 7,
+            "extracted_count": 12
+          },
+          "overall_valid": true
+        }
+      },
+      "grounded": {
+        "output": "Here's the adapted recipe:\n\n**Vegetarian California Apple Spin Salad**\n\n**Ingredients:**\n\n* 1 apple, chopped\n* 2 cups lettuce, chopped\n* 2 cups spinach, chopped\n* 1/4 cup salted cashews\n* 1 tablespoon honey\n* 1 tablespoon oil\n* 1 onion, thinly sliced\n* 1 teaspoon vinegar\n\n**Instructions:**\n\n1. In a small bowl, whisk together honey and vinegar until well combined.\n2. In a large serving bowl, combine chopped lettuce, spinach, apple, and salted cashews.\n3. Add the sliced onion to the bowl and toss gently to combine.\n4. Drizzle the honey-vinegar dressing over the salad and toss again to coat.\n5. Serve immediately, garnished with an additional sprinkle of salt if desired.\n\nNote: I omitted bacon, garlic, pepper from the original recipe as they are not in the allowed list, and instead used onion, which is a common substitute for savory flavors.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "apple",
+            "lettuce",
+            "spinach",
+            "salted cashews",
+            "honey",
+            "oil",
+            "onion",
+            "vinegar"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "bacon"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": false,
+            "novel_ingredients": [],
+            "count": 0,
+            "extracted_count": 8
+          },
+          "overall_valid": false
+        }
+      }
+    },
+    {
+      "example_id": 5,
+      "base_recipe": {
+        "name": "broccoli ziti bake",
+        "ingredients": [
+          "bacon",
+          "broccoli",
+          "cheese",
+          "dry basil",
+          "egg",
+          "garlic",
+          "mozzarella",
+          "mushroom",
+          "olive oil",
+          "onion",
+          "pastum",
+          "pepper",
+          "salt",
+          "thyme"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "pms broccoli ziti bake",
+          "score": 0.638235294117647
+        },
+        {
+          "name": "cheesy broccoli bake",
+          "score": 0.45555555555555555
+        },
+        {
+          "name": "cheesy broccoli bake",
+          "score": 0.4
+        }
+      ],
+      "allowed_ingredients": [
+        "onion",
+        "basil",
+        "parmesan",
+        "parsley",
+        "broccoli",
+        "cheese",
+        "cheese product",
+        "pepper",
+        "celery",
+        "butter",
+        "olive oil",
+        "pastum",
+        "unsalted butter",
+        "water chestnut",
+        "cheddar",
+        "water",
+        "garlic",
+        "mushroom",
+        "salt",
+        "mozzarella"
+      ],
+      "baseline": {
+        "output": "Vegetarian Broccoli Ziti Bake\n\nIngredients:\n\n* 1 pound ziti pasta\n* 3 cups broccoli florets (fresh or frozen, thawed)\n* 2 tablespoons olive oil\n* 2 cloves garlic, minced\n* 1 cup sliced mushrooms\n* 1 small onion, chopped\n* 2 teaspoons dried basil\n* 1 teaspoon dried thyme\n* 1/2 teaspoon salt\n* 1/4 teaspoon black pepper\n* 1 cup shredded mozzarella cheese (vegetarian)\n* 1/2 cup grated Parmesan cheese (vegetarian)\n* 1 egg, beaten (optional)\n\nStep-by-Step Instructions:\n\n1. Preheat the oven to 350\u00b0F (180\u00b0C).\n2. Cook the ziti pasta in boiling salted water according to package instructions until al dente. Drain and set aside.\n3. In a small bowl, mash together 1 clove of garlic and salt to make a paste. Set aside.\n4. In a medium skillet, heat the olive oil over medium heat. Add the chopped onion and cook until translucent (about 5 minutes). Add the sliced mushrooms and cook until they release their liquid and start browning (about 3-4 minutes).\n5. Add the remaining clove of garlic to the skillet with the onion and mushroom mixture. Cook for an additional minute, stirring constantly.\n6. Add the broccoli florets to the skillet and stir to combine with the onion and mushroom mixture. Cook until the broccoli is tender but still crisp (about 3-4 minutes). Season with basil, thyme, salt, and pepper to taste.\n7. In a large mixing bowl, combine the cooked ziti pasta, broccoli mixture, and beaten egg (if using). Mix well to combine.\n8. Transfer half of the pasta mixture to a 9x9-inch baking dish. Sprinkle with half of the mozzarella cheese and Parmesan cheese.\n9. Add the remaining pasta mixture on top of the cheese layer.\n10. Bake covered in the preheated oven for 30 minutes, or until the cheese is melted and bubbly.\n11. Remove the lid and sprinkle with additional Parmesan cheese (if desired). Return to the oven for an additional 5-10 minutes, or until the cheese is golden brown.\n\nNote: To make this recipe even more vegetarian-friendly, you can add other vegetables like cherry tomatoes, bell peppers, or zucchini to the skillet with the onion and mushrooms. Feel free to get creative and experiment with different combinations!",
+        "evaluation": {
+          "extracted_ingredients": [
+            "ziti pasta",
+            "broccoli florets",
+            "olive oil",
+            "garlic",
+            "mushrooms",
+            "onion",
+            "dried basil",
+            "dried thyme",
+            "salt",
+            "black pepper",
+            "mozzarella cheese (vegetarian)",
+            "Parmesan cheese (vegetarian)",
+            "egg"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "ziti pasta",
+              "broccoli florets",
+              "dried basil",
+              "dried thyme",
+              "black pepper",
+              "mozzarella cheese (vegetarian)",
+              "Parmesan cheese (vegetarian)",
+              "egg"
+            ],
+            "count": 8,
+            "extracted_count": 13
+          },
+          "overall_valid": true
+        }
+      },
+      "grounded": {
+        "output": "Here's the adapted vegetarian broccoli ziti bake recipe within the strict ingredient constraints:\n\n**Ingredients:**\n\n* Basil\n* Broccoli\n* Butter\n* Celery\n* Cheddar\n* Cheese\n* Garlic\n* Mozzarella\n* Mushroom\n* Olive oil\n* Onion\n* Parmesan\n* Parsley\n* Pasta (Pastum)\n* Pepper\n* Salt\n* Water\n\n**Instructions:**\n\n1. Cut the broccoli into 2-inch bite-sized pieces. Steam for 10 minutes, until tender but not overcooked. Transfer to a bowl and set aside.\n2. In a small bowl, mash together crushed garlic and salt to form a paste. Set aside.\n3. Saut\u00e9 chopped onion and celery in olive oil until limp and water has evaporated.\n4. Add the steamed broccoli, mushroom, and garlic paste to the skillet with onion and celery. Stir well to combine.\n5. Bring a large pot of boiling water to a rapid boil. Cook pasta (Pastum) according to package instructions until al dente. Drain and return the pasta to the pot.\n6. In the same pot used for cooking pasta, add the steamed broccoli mixture and stir to combine with the cooked pasta.\n7. Transfer half of the pasta mixture to a 9x9 baking dish. Sprinkle with half of the mozzarella cheese and parmesan cheese.\n8. Add the remaining pasta mixture on top of the first layer. Sprinkle with the remaining mozzarella cheese and parmesan cheese.\n9. Dot the top of the casserole with butter and sprinkle with salt, pepper, and parsley.\n10. Bake covered in a preheated 350\u00b0F oven for 30 minutes.\n\nEnjoy your vegetarian broccoli ziti bake!",
+        "evaluation": {
+          "extracted_ingredients": [
+            "Basil",
+            "Broccoli",
+            "Butter",
+            "Celery",
+            "Cheddar",
+            "Cheese",
+            "Garlic",
+            "Mozzarella",
+            "Mushroom",
+            "Olive oil",
+            "Onion",
+            "Parmesan",
+            "Parsley",
+            "Pasta (Pastum)",
+            "Pepper",
+            "Salt",
+            "Water"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "Pasta (Pastum)"
+            ],
+            "count": 1,
+            "extracted_count": 17
+          },
+          "overall_valid": true
+        }
+      }
+    }
+  ]
+}

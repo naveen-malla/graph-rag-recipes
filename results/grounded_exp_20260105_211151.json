@@ -1,0 +1,647 @@
+{
+  "metadata": {
+    "timestamp": "20260105_211151",
+    "config": {
+      "num_examples": 5,
+      "top_k": 3,
+      "model": "llama3.2:3b",
+      "constraint": "vegetarian",
+      "random_seed": 42
+    }
+  },
+  "summary": {
+    "num_examples": 5,
+    "baseline": {
+      "constraint_violation_count": 4,
+      "constraint_violation_rate": 0.8,
+      "grounding_violation_count": 5,
+      "grounding_violation_rate": 1.0,
+      "avg_novel_ingredients": 6.2
+    },
+    "grounded": {
+      "constraint_violation_count": 3,
+      "constraint_violation_rate": 0.6,
+      "grounding_violation_count": 4,
+      "grounding_violation_rate": 0.8,
+      "avg_novel_ingredients": 1.6
+    }
+  },
+  "results": [
+    {
+      "example_id": 1,
+      "base_recipe": {
+        "name": "chicken enchiladas",
+        "ingredients": [
+          "butter",
+          "cheddar",
+          "chicken",
+          "cream of chicken soup",
+          "cumin",
+          "garlic",
+          "onion",
+          "paprika",
+          "pepper",
+          "picante sauce",
+          "sour cream",
+          "tortilla"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "enchiladas",
+          "score": 0.32352941176470584
+        },
+        {
+          "name": "beef enchiladas",
+          "score": 0.3111111111111111
+        },
+        {
+          "name": "venison enchiladas",
+          "score": 0.3
+        }
+      ],
+      "allowed_ingredients": [
+        "corn",
+        "chili powder",
+        "tortilla",
+        "tomato sauce",
+        "wild game",
+        "onion",
+        "cheese",
+        "sour cream",
+        "bean",
+        "cumin",
+        "spice",
+        "parsley",
+        "pepper",
+        "grapeseed oil",
+        "salt",
+        "round",
+        "salsa"
+      ],
+      "baseline": {
+        "output": "Adapted Recipe: Vegetarian Chicken Enchiladas (now with Roasted Vegetables)\n\n**Ingredients:**\n\n* 8-10 corn tortillas\n* 1 cup roasted vegetables (such as zucchini, bell peppers, and onions)\n* 2 cups shredded cheddar cheese\n* 1/4 cup chopped fresh cilantro\n* 2 tablespoons butter\n* 2 cloves garlic, minced\n* 1 teaspoon ground cumin\n* 1/4 teaspoon paprika\n* Salt and pepper to taste\n* 8 ounces cream of mushroom soup\n* 1/2 cup sour cream\n* Picante sauce (make sure it's vegetarian)\n* Tortilla chips or diced tomatoes for topping (optional)\n\n**Step-by-Step Instructions:**\n\n1. Preheat your oven to 350\u00b0F (175\u00b0C).\n2. In a large skillet, saut\u00e9 the roasted vegetables with butter, garlic, and cumin until the vegetables are tender.\n3. Add the picante sauce to the skillet and stir to combine. Season with salt and pepper to taste.\n4. In a separate pan, soften the tortillas by heating them on a hot, well-oiled griddle for about 30 seconds on each side.\n5. Fill each tortilla with the roasted vegetable mixture, followed by shredded cheese. Repeat this process until all the ingredients are used up, reserving some cheese for topping.\n6. In a separate bowl, mix the cream of mushroom soup and sour cream together. Add the paprika and stir to combine.\n7. Pour the soup-sour cream mixture over the enchilada layer in the 13x9 inch baking dish.\n8. Top with the reserved cheese and sprinkle some cilantro for garnish.\n9. Bake the enchiladas in the preheated oven for about 20-25 minutes, or until hot and bubbly.\n10. Remove from the oven and let cool for a few minutes before serving. If desired, top with tortilla chips or diced tomatoes.\n\n**Note:** You can roast your vegetables (such as zucchini, bell peppers, and onions) in the oven by brushing them with oil, seasoning with salt, pepper, and any other spices you like, and baking at 400\u00b0F (200\u00b0C) for about 20-25 minutes, or until tender.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "corn tortillas",
+            "roasted vegetables",
+            "cheddar cheese",
+            "fresh cilantro",
+            "butter",
+            "garlic",
+            "ground cumin",
+            "paprika",
+            "Salt",
+            "pepper",
+            "cream of mushroom soup",
+            "sour cream",
+            "Picante sauce",
+            "Tortilla chips",
+            "diced tomatoes"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "corn tortillas",
+              "roasted vegetables",
+              "cheddar cheese",
+              "fresh cilantro",
+              "butter",
+              "garlic",
+              "ground cumin",
+              "paprika",
+              "cream of mushroom soup",
+              "Picante sauce",
+              "Tortilla chips",
+              "diced tomatoes"
+            ],
+            "count": 12,
+            "extracted_count": 15
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "Here is the adapted vegetarian version of the original chicken enchiladas recipe:\n\n**Ingredients:**\n\n* 1 cup cheese\n* 1/2 cup chili powder\n* 1/4 cup cumin\n* 1 onion\n* 1/2 teaspoon paprika (not in original list, omitting)\n* 1/2 teaspoon pepper\n* 2 cups salsa\n* 1 cup sour cream\n* 6 tortilla\n\n**Instructions:**\n\n1. Brown the onion and chili powder in grapeseed oil until softened.\n2. Add cumin to the pan and stir for 1 minute.\n3. Simmer the mixture for 5 minutes, stirring occasionally.\n4. Chop the tortillas on a hot, well-oiled griddle.\n5. Fill tortillas with the onion mixture, reserving some for topping.\n6. Place filled tortillas in a 13 x 7 1/2 inch casserole dish and cover with cheese.\n7. Mix salsa and sour cream together, adding more or less of each to taste.\n8. Pour the salsa-sour cream mixture over the enchiladas.\n9. Sprinkle paprika (not used) and remaining tortilla topping on top.\n10. Bake at 350\u00b0F for 20-25 minutes, until hot and bubbly.\n\nNote: I omitted the original recipe's garlic, picante sauce, sour cream was already included in the tomato sauce, and paprika was not needed.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "cheese",
+            "chili powder",
+            "cumin",
+            "onion",
+            "paprika",
+            "pepper",
+            "salsa",
+            "sour cream",
+            "tortilla"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "paprika"
+            ],
+            "count": 1,
+            "extracted_count": 9
+          },
+          "overall_valid": false
+        }
+      }
+    },
+    {
+      "example_id": 2,
+      "base_recipe": {
+        "name": "healthy breakfast hash",
+        "ingredients": [
+          "dried chipotle powder",
+          "garlic",
+          "olive oil",
+          "onion",
+          "pepper",
+          "potato",
+          "rosemary",
+          "sausage",
+          "spinach"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "healthy breakfast energy bars",
+          "score": 0.24
+        },
+        {
+          "name": "breakfast tacos",
+          "score": 0.2
+        },
+        {
+          "name": "breakfast tacos",
+          "score": 0.19
+        }
+      ],
+      "allowed_ingredients": [
+        "chily",
+        "tortilla",
+        "oat",
+        "onion",
+        "avocado",
+        "cheese",
+        "sour cream",
+        "coconut",
+        "lettuce",
+        "nut",
+        "egg",
+        "taco shell",
+        "olife",
+        "margarine",
+        "honey",
+        "lowfat milk",
+        "chocolate chip",
+        "pepper",
+        "cheddar",
+        "hot sauce",
+        "flour",
+        "grapeseed oil",
+        "salt",
+        "salsa"
+      ],
+      "baseline": {
+        "output": "Adapted Recipe: Vegetarian Breakfast Hash\n\nIngredients:\n\n* 2 large potatoes, peeled and diced\n* 1 large onion, chopped\n* 2 cloves of garlic, minced\n* 1 tablespoon olive oil\n* 1 teaspoon dried rosemary\n* 1/2 teaspoon salt\n* 1/4 teaspoon black pepper\n* 1/2 cup frozen spinach\n* 1/4 cup diced bell peppers (any color)\n* 2 tablespoons chopped fresh parsley\n\nSteps:\n\n1. In a large pot, boil the diced potatoes until almost tender, about 10 to 12 minutes. Drain and cool.\n2. In a very large heavy skillet, heat the olive oil over medium-high heat. Add the chopped onion and cook, stirring often, until beginning to soften, about 5 minutes.\n3. Add the cooled potatoes, garlic, rosemary, salt, and pepper to the skillet. Cook, stirring occasionally, until crispy and brown, about 10 minutes.\n4. Add the diced bell peppers to the skillet and cook, stirring occasionally, until they are tender-crisp, about 5 minutes.\n5. Stir in the frozen spinach and cook until it has thawed and wilted down, about 2-3 minutes.\n6. Use a spatula or spoon to fluff the hash mixture and break up any clumps.\n7. Serve the vegetarian breakfast hash hot, garnished with chopped fresh parsley.\n\n Notes:\n\n* You can customize the bell peppers to your taste by using different colors or adding other vegetables like mushrooms or zucchini.\n* If you want to add some heat to the dish, you can add a pinch of red pepper flakes or some diced jalapenos.\n* Feel free to adjust the amount of garlic and rosemary to your liking.\n\nThis adapted recipe replaces the sausage with nothing, making it a fully vegetarian option. The addition of spinach provides a boost of nutrients and flavor, while the bell peppers add a pop of color and sweetness. Enjoy!",
+        "evaluation": {
+          "extracted_ingredients": [
+            "potatoes",
+            "onion",
+            "garlic",
+            "olive oil",
+            "dried rosemary",
+            "salt",
+            "black pepper",
+            "frozen spinach",
+            "bell peppers",
+            "fresh parsley"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "sausage"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "potatoes",
+              "garlic",
+              "olive oil",
+              "dried rosemary",
+              "black pepper",
+              "frozen spinach",
+              "bell peppers",
+              "fresh parsley"
+            ],
+            "count": 8,
+            "extracted_count": 10
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "**Vegetarian Breakfast Hash Adaptation**\n\n**Ingredients:**\n\n* 1 cup grated cheddar cheese\n* 1/4 cup chopped onion\n* 1/4 cup chopped fresh lettuce (as a substitute for spinach)\n* 2 tablespoons grapeseed oil\n* 1 egg, beaten\n* 1 tablespoon honey\n* Salt and pepper to taste\n* Optional: hot sauce (to taste)\n\n**Steps:**\n\n1. In a large pan, heat the grapeseed oil over medium-high heat.\n2. Add the chopped onion and cook until softened, about 5 minutes.\n3. Add the grated cheddar cheese and stir until melted and combined with the onion.\n4. Push the onion-cheese mixture to one side of the pan. Crack in the egg and scramble it until cooked through.\n5. Mix the egg with the onion-cheese mixture.\n6. Add the chopped lettuce to the pan and stir until wilted down (about 1-2 minutes).\n7. Season with salt, pepper, and honey to taste. If desired, add hot sauce for an extra kick.\n8. Serve the vegetarian breakfast hash hot, garnished with additional cheddar cheese if desired.\n\nNote: I omitted the potatoes and sausage from the original recipe, as they are not in the allowed ingredients list. I replaced spinach with lettuce, which provided a similar texture and freshness to the dish. The cheddar cheese added a rich, savory flavor that helped to replace the missing elements of the original recipe.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "cheddar cheese",
+            "onion",
+            "fresh lettuce",
+            "grapeseed oil",
+            "egg",
+            "honey",
+            "Salt",
+            "pepper",
+            "hot sauce"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "sausage"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "cheddar cheese",
+              "fresh lettuce"
+            ],
+            "count": 2,
+            "extracted_count": 9
+          },
+          "overall_valid": false
+        }
+      }
+    },
+    {
+      "example_id": 3,
+      "base_recipe": {
+        "name": "mushroom rice",
+        "ingredients": [
+          "butter",
+          "chicken broth",
+          "garlic",
+          "mushroom",
+          "onion",
+          "parsley",
+          "pepper",
+          "rice",
+          "salt"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "spanish rice",
+          "score": 0.3333333333333333
+        },
+        {
+          "name": "mushroom ravioli",
+          "score": 0.3176470588235294
+        },
+        {
+          "name": "mushroom ravioli",
+          "score": 0.3176470588235294
+        }
+      ],
+      "allowed_ingredients": [
+        "shallot",
+        "wonton wrapper",
+        "onion",
+        "mushroom",
+        "starch",
+        "olive oil",
+        "chive",
+        "parmesan",
+        "butter",
+        "dried rosemary leafe",
+        "garlic",
+        "lowfat milk",
+        "pepper",
+        "tomato",
+        "rice",
+        "flour",
+        "salt"
+      ],
+      "baseline": {
+        "output": "**Vegetarian Mushroom Rice Recipe**\n\nIngredients:\n\n* 1 cup rice\n* 2 cups water\n* 2 tablespoons butter or vegetable oil\n* 1 onion, chopped\n* 2 cloves garlic, minced\n* 8 oz mushrooms (button, cremini, or shiitake), sliced\n* 1 teaspoon dried parsley\n* Salt and pepper to taste\n\nSteps:\n\n1. Heat the butter or oil in a saucepan over medium heat.\n2. Add the chopped onion and cook until it is translucent and softened, about 3-4 minutes.\n3. Add the minced garlic and cook for another minute, stirring constantly to prevent burning.\n4. Add the sliced mushrooms and cook until they release their moisture and start to brown, about 5 minutes.\n5. Add the water to the saucepan and bring to a boil.\n6. Add the rice to the saucepan, stir to combine with the mushroom mixture, and reduce heat to low.\n7. Cover the saucepan with a lid and simmer for 15-20 minutes or until the rice is cooked and fluffy.\n8. Stir in the chopped parsley, salt, and pepper to taste.\n9. Serve hot, garnished with additional parsley if desired.\n\nNote: Since this recipe is vegetarian, we've removed the chicken broth from the original recipe and replaced it with water. We've also kept the butter or oil as a source of flavor instead of using chicken broth.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "rice",
+            "water",
+            "butter",
+            "vegetable oil",
+            "onion",
+            "garlic",
+            "mushrooms",
+            "dried parsley",
+            "Salt",
+            "pepper"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "chicken"
+            ],
+            "count": 1
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "water",
+              "vegetable oil",
+              "dried parsley"
+            ],
+            "count": 3,
+            "extracted_count": 10
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "**Vegetarian Mushroom Rice**\n\n**Ingredients:**\n\n* 2 tablespoons butter\n* 1 cup lowfat milk\n* 1 cup uncooked rice\n* 2 cups water\n* 2 cups mixed mushrooms (such as button, cremini, and shiitake), sliced\n* 2 cloves garlic, minced\n* 1 medium onion, chopped\n* 1 tablespoon dried rosemary leaves\n* Salt to taste\n* Pepper to taste\n\n**Instructions:**\n\n1. In a medium saucepan, melt the butter over medium heat.\n2. Add the mixed mushrooms, garlic, and chopped onion to the saucepan. Cook until the vegetables are tender and the mushrooms are cooked through.\n3. Add the rice to the saucepan and stir to coat with the mushroom mixture. Cook for 1-2 minutes.\n4. Add the water and dried rosemary leaves to the saucepan. Stir to combine.\n5. Bring the mixture to a boil, then reduce the heat to low, cover, and simmer for 15-20 minutes or until the rice is cooked and the liquid has been absorbed.\n6. Season the mushroom rice with salt and pepper to taste.\n7. Serve hot, garnished with chopped fresh parsley or chives if desired.\n\nNote: I omitted the tomato from the original recipe as it was not allowed in the ingredient list for this adaptation.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "butter",
+            "lowfat milk",
+            "rice",
+            "water",
+            "mixed mushrooms",
+            "garlic",
+            "onion",
+            "dried rosemary leaves",
+            "Salt",
+            "Pepper"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "water",
+              "mixed mushrooms",
+              "dried rosemary leaves"
+            ],
+            "count": 3,
+            "extracted_count": 10
+          },
+          "overall_valid": true
+        }
+      }
+    },
+    {
+      "example_id": 4,
+      "base_recipe": {
+        "name": "caramelized onion rice",
+        "ingredients": [
+          "brown sugar",
+          "butter",
+          "chicken broth",
+          "garlic",
+          "onion",
+          "rice"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "caramelized onion rolls",
+          "score": 0.38
+        },
+        {
+          "name": "caramelized onion bread",
+          "score": 0.36666666666666664
+        },
+        {
+          "name": "caramelized onion frittata",
+          "score": 0.33076923076923076
+        }
+      ],
+      "allowed_ingredients": [
+        "onion",
+        "water",
+        "hot mix",
+        "olive oil",
+        "caster sugar",
+        "active dry yeast",
+        "thyme leave",
+        "egg",
+        "parmesan",
+        "nonstick cooking spray",
+        "margarine",
+        "parsley",
+        "pepper",
+        "vegetable oil",
+        "brown sugar",
+        "flour",
+        "salt"
+      ],
+      "baseline": {
+        "output": "**Vegetarian Caramelized Onion Rice**\n\n**Ingredients:**\n\n* 1 cup brown rice\n* 2 cups water or vegetable broth\n* 2 tablespoons butter or margarine (vegetarian)\n* 1 large onion, thinly sliced\n* 2 cloves garlic, minced\n* 1 tablespoon brown sugar\n* Salt to taste\n\n**Instructions:**\n\n1. In a large skillet, melt the butter or margarine over medium heat. Add the sliced onions and cook until they are softened and lightly browned, about 5-7 minutes.\n2. Add the minced garlic to the skillet and cook for an additional minute, stirring constantly to prevent burning.\n3. Sprinkle the brown sugar over the onions and continue cooking, stirring occasionally, until the mixture is caramelized-looking and fragrant, about 3-4 minutes.\n4. In a medium saucepan, bring the water or broth to a boil. Add the brown rice and reduce the heat to low. Cover the saucepan with a tight-fitting lid and simmer for 20-25 minutes, or until the liquid is absorbed and the rice is tender.\n5. Fluff the cooked rice with a fork and stir in the caramelized onion mixture.\n6. Season the rice with salt to taste, then serve hot.\n\nNote: As the original recipe mentioned adding extra broth if desired for a softer texture, you can also adjust the amount of water or broth according to your preference.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "brown rice",
+            "water",
+            "vegetable broth",
+            "butter",
+            "margarine (vegetarian)",
+            "onion",
+            "garlic",
+            "brown sugar",
+            "Salt"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "brown rice",
+              "vegetable broth",
+              "butter",
+              "margarine (vegetarian)",
+              "garlic"
+            ],
+            "count": 5,
+            "extracted_count": 9
+          },
+          "overall_valid": true
+        }
+      },
+      "grounded": {
+        "output": "Here's the adapted vegetarian version of the caramelized onion rice recipe:\n\n**Vegetarian Caramelized Onion Rice**\n\n**Ingredients:**\n\n* 2 cups flour\n* 1 cup hot mix\n* 1/4 cup brown sugar\n* 2 tablespoons olive oil\n* 1 large onion, sliced\n* 2 eggs\n* 1 teaspoon salt\n* 1/4 teaspoon pepper\n\n**Steps:**\n\n1. In a medium saucepan, melt the olive oil over medium heat. Add the sliced onions and cook until they're softened and lightly browned.\n2. Sprinkle the brown sugar over the onions and stir to combine. Cook for an additional 3-4 minutes, or until the mixture is caramelized-looking.\n3. In a separate bowl, whisk together the eggs, salt, and pepper. Add this mixture to the saucepan with the onions and stir to combine.\n4. Gradually add the flour and hot mix to the saucepan, stirring constantly with a wooden spoon to prevent lumps from forming.\n5. Cook for an additional 2-3 minutes, or until the rice is cooked through and the mixture has thickened slightly.\n6. Remove the saucepan from the heat and let it cool for a few minutes before serving.\n\nNote: Since the original recipe relied on cooking the rice in a rice cooker, I've adapted this to cook the rice directly in the saucepan with the onion mixture. If you prefer your rice softer, you can add an extra 1-2 tablespoons of water to the saucepan during cooking.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "flour",
+            "hot mix",
+            "brown sugar",
+            "olive oil",
+            "onion",
+            "eggs",
+            "salt",
+            "pepper"
+          ],
+          "constraint_check": {
+            "violated": false,
+            "violations": [],
+            "count": 0
+          },
+          "grounding_check": {
+            "violated": false,
+            "novel_ingredients": [],
+            "count": 0,
+            "extracted_count": 8
+          },
+          "overall_valid": true
+        }
+      }
+    },
+    {
+      "example_id": 5,
+      "base_recipe": {
+        "name": "borscht ii",
+        "ingredients": [
+          "beef stew meat",
+          "beet",
+          "chicken stock",
+          "lime juice",
+          "onion",
+          "salt",
+          "sour cream",
+          "sugar",
+          "tomato"
+        ]
+      },
+      "retrieved_recipes": [
+        {
+          "name": "borscht",
+          "score": 0.3888888888888889
+        },
+        {
+          "name": "borscht",
+          "score": 0.34705882352941175
+        },
+        {
+          "name": "creamy buffalo dip",
+          "score": 0.10666666666666667
+        }
+      ],
+      "allowed_ingredients": [
+        "celery",
+        "beet",
+        "tomato sauce",
+        "rosemary",
+        "lime juice",
+        "onion",
+        "water",
+        "sour cream",
+        "bay leaf",
+        "dried ancho chile powder",
+        "lemon juice",
+        "paprika",
+        "dried dill weed",
+        "dried chipotle powder",
+        "butter",
+        "cabbage",
+        "garlic",
+        "heavy cream",
+        "carrot",
+        "pepper",
+        "tomato",
+        "brown sugar",
+        "hot sauce",
+        "salt",
+        "potato"
+      ],
+      "baseline": {
+        "output": "**Vegetarian Borscht II**\n\nIngredients:\n\n* 2 medium-sized beets, peeled and grated (after cooking)\n* 1 large onion, chopped\n* 2 cups vegetable broth\n* 2 tablespoons lime juice\n* 1 tablespoon sugar\n* 8 oz sour cream (vegetarian-friendly brand)\n* Salt to taste\n\nSteps:\n\n1. In a large non-reactive pot, combine the chopped onion, vegetable broth, and grated beets. Bring the mixture to a boil over high heat.\n2. Reduce the heat to low and simmer for 2 hours, or until the beets are tender.\n3. Half an hour before serving, remove the pot from the heat source. Let it cool slightly, then strain the liquid through a fine-mesh sieve into a clean pot, discarding the solids.\n4. Return the strained liquid to the pot and stir in the lime juice and sugar. Season with salt to taste.\n5. Serve hot, topped with a dollop of sour cream.\n\nNote: I've removed the beef stew meat and tomato from the original recipe, replacing them with vegetable broth to maintain the soup's consistency and flavor profile. The beets are still the star ingredient, providing natural sweetness and color to the dish.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "beets",
+            "onion",
+            "vegetable broth",
+            "lime juice",
+            "sugar",
+            "sour cream (vegetarian-friendly brand)",
+            "Salt"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "beef",
+              "meat"
+            ],
+            "count": 2
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "vegetable broth",
+              "sugar",
+              "sour cream (vegetarian-friendly brand)"
+            ],
+            "count": 3,
+            "extracted_count": 7
+          },
+          "overall_valid": false
+        }
+      },
+      "grounded": {
+        "output": "**Vegetarian Adaptation of Borscht II**\n\n**Ingredients:**\n\n* 2 medium beets\n* 1/4 cup butter\n* 1 large onion\n* 2 cups water\n* 2 tbsp tomato sauce\n* 2 tbsp heavy cream (optional)\n* Salt and pepper to taste\n* Fresh parsley or dill (optional for garnish)\n\n**Instructions:**\n\n1. In a large non-reactive pot, combine the beets, butter, onion, salt, and pepper. Bring to a boil over high heat.\n2. Reduce heat to medium-low and allow the soup to simmer for 45-50 minutes, or until the beets are tender when pierced with a fork.\n3. Half an hour before serving, stir in the tomato sauce and continue to simmer for another 30 minutes, allowing the flavors to meld together.\n4. If desired, stir in the heavy cream (if using) during the last 10 minutes of cooking to add a creamy texture.\n5. Remove the pot from heat and let it cool slightly. Use an immersion blender or transfer the soup to a blender to puree until smooth.\n6. Strain the soup through a fine-mesh sieve to remove any solids, if desired (optional).\n7. Taste and adjust seasoning as needed with salt and pepper.\n8. Serve hot, garnished with chopped fresh parsley or dill, if desired.\n\n**Note:** Since the original recipe was adapted to be vegetarian by removing the beef stew meat, I've also removed the lime juice and sour cream from the list of allowed ingredients to ensure adherence to the original rules. The heavy cream is optional, but it adds a rich and creamy texture to the soup.",
+        "evaluation": {
+          "extracted_ingredients": [
+            "beets",
+            "butter",
+            "onion",
+            "water",
+            "tomato sauce",
+            "heavy cream",
+            "Salt",
+            "pepper",
+            "Fresh parsley",
+            "Fresh dill"
+          ],
+          "constraint_check": {
+            "violated": true,
+            "violations": [
+              "beef",
+              "meat"
+            ],
+            "count": 2
+          },
+          "grounding_check": {
+            "violated": true,
+            "novel_ingredients": [
+              "Fresh parsley",
+              "Fresh dill"
+            ],
+            "count": 2,
+            "extracted_count": 10
+          },
+          "overall_valid": false
+        }
+      }
+    }
+  ]
+}
