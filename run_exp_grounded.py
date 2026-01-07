@@ -14,7 +14,7 @@ from evaluation.grounded_checker import evaluate_grounded
 
 # === CONFIG ===
 NUM_EXAMPLES = 500        # ~4 hours runtime
-TOP_K = 3                 # Number of recipes to retrieve
+TOP_K = 5                 # Number of recipes to retrieve
 MODEL = "llama3.2:3b"     # LLM model
 CONSTRAINT = "vegetarian"
 RANDOM_SEED = 42          # For reproducibility
@@ -166,7 +166,7 @@ def save_results(results, summary):
     results_dir.mkdir(exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = results_dir / f"grounded_exp_{timestamp}.json"
+    filename = results_dir / f"grounded_exp_k{TOP_K}_{timestamp}.json"
     
     output = {
         "metadata": {
