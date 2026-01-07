@@ -2,14 +2,14 @@
 
 **Author:** Naveen  
 **Supervisor:** Prof. Ralph Bergmann  
-**Date:** 6 January 2026  
-**Status:** Complete
+**Date:** 7 January 2026  
+**Status:** Complete (with k ablation)
 
 ---
 
 ## Executive Summary
 
-This report documents a controlled experiment comparing **baseline RAG** vs **grounded RAG** for recipe adaptation. The key finding: **explicit grounding constraints reduce novel ingredient hallucinations by 87%** (from 6.29 to 0.81 per recipe, n=500).
+This report documents a controlled experiment comparing **baseline RAG** vs **grounded RAG** for recipe adaptation. The key finding: **explicit grounding constraints reduce novel ingredient hallucinations by 87%** (from 6.29 to 0.81 per recipe, n=500). An ablation study with k=5 vs k=3 retrieval shows **k=3 is more effective**, suggesting additional retrieved recipes introduce noise rather than improve grounding.
 
 ---
 
@@ -83,7 +83,7 @@ score = 0.4 × ingredient_jaccard + 0.6 × name_jaccard
 - Combined approach yields scores of 0.30-0.50
 
 ### Ablation
-Testing with **k=3** and **k=5** retrieved recipes.
+Testing with **k=3** and **k=5** retrieved recipes to determine optimal context size for grounding.
 
 ---
 
@@ -126,7 +126,9 @@ We use Jaccard similarity rather than embedding-based retrieval because:
 
 ---
 
-## 7. Results (n=500)
+## 7. Results
+
+### 7.1 Main Experiment (n=500, k=3)
 
 | Metric | Baseline | Grounded | Δ |
 |--------|----------|----------|---|
@@ -134,7 +136,7 @@ We use Jaccard similarity rather than embedding-based retrieval because:
 | Grounding violation rate | 99.8% | 46.0% | **-53.8%** |
 | **Avg novel ingredients** | **6.29** | **0.81** | **-87%** |
 
-### Key Findings
+#### Key Findings
 
 1. **87% reduction in novel ingredients**: Grounded prompting dramatically reduces hallucinated ingredients (6.29 → 0.81 per recipe).
 
@@ -146,52 +148,94 @@ We use Jaccard similarity rather than embedding-based retrieval because:
 
 ---
 
+### 7.2 Ablation Study: k=3 vs k=5 (n=500 each)
+
+| Metric | K=3 (Base) | K=3 (Ground) | K=5 (Base) | K=5 (Ground) |
+|--------|------------|--------------|------------|--------------|
+| Constraint violations | 369 (73.8%) | 305 (61.0%) | 397 (79.4%) | 339 (67.8%) |
+| Grounding violations | 499 (99.8%) | 230 (46.0%) | 500 (100%) | 250 (50.0%) |
+| Avg novel ingredients | 6.29 | 0.81 | 5.93 | 0.89 |
+
+#### Improvements Over Baseline
+
+| Metric | K=3 | K=5 | Winner |
+|--------|-----|-----|--------|
+| Constraint violation reduction | +12.8% | +11.6% | **K=3** |
+| Grounding violation reduction | +53.8% | +50.0% | **K=3** |
+| Novel ingredient reduction | 87.2% | 85.0% | **K=3** |
+
+#### Ablation Findings
+
+1. **K=3 outperforms K=5 across all metrics**: More retrieved recipes don't improve grounding effectiveness.
+
+2. **Diminishing returns from additional context**: The 4th and 5th retrieved recipes appear to introduce noise rather than helpful constraints.
+
+3. **Tighter constraints work better**: With k=3, the allowed ingredient set is smaller (more constrained), leading to fewer novel ingredients (0.81 vs 0.89).
+
+4. **Recommendation**: Use **k=3** for grounded RAG. Additional retrieved recipes dilute the grounding effect without compensatory benefits.
+
+---
+
 ## 8. Experiment Details
 
-**Configuration:**
+**Main Experiment (k=3):**
 - 500 test examples (randomly sampled, seed=42)
 - 2 conditions (baseline, grounded)
-- k=3 retrieved recipes
 - Total: 1,000 LLM calls
-- Runtime: ~5 hours (with sleep interruptions)
+- Runtime: ~5 hours
 - Model: llama3.2:3b via Ollama (~30-40s per generation)
+- Completed: 6 January 2026
+
+**Ablation Study (k=5):**
+- 500 test examples (same seed=42)
+- 2 conditions (baseline, grounded)
+- Total: 1,000 LLM calls
+- Runtime: 3h 46min
+- Model: llama3.2:3b via Ollama (~27s per generation)
+- Completed: 7 January 2026
 
 ---
 
 ## 9. Limitations
 
-1. **Sample size**: 500 examples (10% of available data)
+1. **Sample size**: 500 examples per condition (10% of available data)
 2. **Keyword-based constraint check**: May miss euphemisms for meat
 3. **Ingredient matching**: Variants like "fresh parsley" vs "parsley" may cause false positives
 4. **Single model**: Only tested with llama3.2:3b
 5. **No human evaluation**: Quality of adaptations not assessed
+6. **Binary k values**: Only tested k=3 and k=5; optimal k may lie elsewhere
 
 ---
 
 ## 10. Next Steps
 
-1. **k=5 ablation**: Test with 5 retrieved recipes (more allowed ingredients)
+1. ~~**k=5 ablation**: Test with 5 retrieved recipes~~ ✓ **Complete** — k=3 is optimal
 2. **Analyze failure cases**: Why does grounded still introduce ~0.8 novel ingredients?
 3. **Constraint violation analysis**: Why do both conditions fail the vegetarian constraint at high rates?
-4. **Compare with graph-based approach**: Use CookingCAKE bipartite representation
-5. **Human evaluation**: Assess adaptation quality, not just constraint satisfaction
-6. **Larger model test**: Compare with llama3.2:7b or larger
+4. **Test k=1 and k=2**: Check if even tighter constraints improve grounding further
+5. **Compare with graph-based approach**: Use CookingCAKE bipartite representation
+6. **Human evaluation**: Assess adaptation quality, not just constraint satisfaction
+7. **Larger model test**: Compare with llama3.2:7b or llama3.1:70b
 
 ---
 
 ## 11. Reproducibility
 
 ### Code
-All experiment code in: `github.com/[repo]/graph-rag-recipes`
+All experiment code in: `github.com/naveenkb/graph-rag-recipes`
 
 ### Key Files
-- `run_exp_grounded_ablation.py`: Main experiment runner
+- `run_exp_grounded.py`: Main experiment runner (k=3 or k=5)
 - `generation/grounded_generation.py`: Baseline and grounded prompt templates
 - `evaluation/grounded_checker.py`: Violation detection
 - `retrieval/grounded_retrieval.py`: Combined similarity retrieval
 
+### Results Files
+- **k=3**: `results/grounded_exp_20260106_031203.json`
+- **k=5**: `results/grounded_exp_k5_20260107_004924.json`
+
 ### Random Seed
-`RANDOM_SEED = 42` for all experiments
+`RANDOM_SEED = 42` for all experiments (ensures same test samples across k values)
 
 ---
 
@@ -280,5 +324,6 @@ Novel ingredients: 3
 
 ---
 
-*Report generated: 2026-01-06*
-*Experiment completed: 500 examples, k=3 retrieval*
+*Report generated: 2026-01-07*  
+*Main experiment: 500 examples, k=3 retrieval (6 Jan 2026)*  
+*Ablation study: 500 examples, k=5 retrieval (7 Jan 2026)*
